@@ -32,7 +32,9 @@ pref_list =np.array([
    34.06577,34.340149,33.84166,33.559705,33.606785,
    33.249367,32.744839,32.789828,33.238194,31.91109,31.560148,26.212401]]).transpose()
 
-pref_df = pd.DataFrame(pref_list,columns=['name', 'lng', 'lat'])
+pref_df = pd.DataFrame(pref_list,columns=['name_jp', 'lng', 'lat'])
 
+result = pd.merge(covid_df, pref_df, on='name_jp')
 
+result.to_csv('covid_19_with_lnglat.csv')
 
